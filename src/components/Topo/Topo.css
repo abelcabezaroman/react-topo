@@ -1,0 +1,16 @@
+.c-topo {
+   
+}
+
+.c-topo__game{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 618px;
+    height: 618px;
+}
+
+.c-topo__square{
+    width: 25%;
+}
