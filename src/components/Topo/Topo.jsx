@@ -7,10 +7,7 @@ let stopTimer = false;
 export default function Topo() {
     const [topoPosition, setTopoPosition] = useState(generateXY());
     const [count, setCount] = useState(0);
-    const [timer, setTimer] = useState(5);
-
-
-
+    const [timer, setTimer] = useState(30);
 
     useEffect(() => {
         setTimeout(() => {
@@ -25,7 +22,6 @@ export default function Topo() {
 
             if (!stopTimer) {
                 generatePosition();
-
             }
         }, 500)
     }, [topoPosition])
@@ -45,7 +41,7 @@ export default function Topo() {
         <h2>Contador: {count}</h2>
         <div className="c-topo__game">
             {matrix.map((x, xIndex) => matrix.map((y, yIndex) => <div className="c-topo__square" key={xIndex + " " + yIndex}>
-                {x === topoPosition.x && y === topoPosition.y && <img onClick={() => setCount(count + 1)} src="images/mole.png" alt="mole" draggable="false" />}
+                {x === topoPosition.x && y === topoPosition.y && <img onClick={() => !stopTimer && setCount(count + 1)} src="images/mole.png" alt="mole" draggable="false" />}
                 {(x !== topoPosition.x || y !== topoPosition.y) && <img src="images/bg.jpg" alt="background" draggable="false" />}
             </div>)
             )}
